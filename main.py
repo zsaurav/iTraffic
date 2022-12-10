@@ -198,7 +198,7 @@ def video_feed():
 @app.route('/')
 def index():
     """Video streaming home page."""
-    return render_template('index.html')
+    return render_template('map.html')
 
 
 if __name__ == '__main__':
