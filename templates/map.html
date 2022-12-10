@@ -60,25 +60,14 @@
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
             <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
+                    {% for item in nav.top %}
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">
+                    <a class="nav-link {{ 'active' if item.is_active else '' }}" aria-current="page" href="{{ item.url }}">
                             <span data-feather="home"></span>
-                            Dashboard
-                        </a>
+                            {{ item.label }}
+                    </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="file"></span>
-                            Analytics
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="shopping-cart"></span>
-                            Live View
-                        </a>
-                    </li>
-
+                    {% endfor %}
                 </ul>
             </div>
         </nav>
@@ -130,7 +119,8 @@
                              class="p-1  card-img-top img-fluid img-thumbnail" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Traffic Incidents</h5>
-                            <p class="card-text" style="text-align: justify">Road traffic injuries cause considerable economic losses to
+                            <p class="card-text" style="text-align: justify">Road traffic injuries cause considerable
+                                economic losses to
                                 individuals, their families, and to nations as a whole. These losses arise from the cost
                                 of treatment as well as lost productivity for those killed or disabled by their
                                 injuries, and for family members who need to take time off work or school to care for
@@ -153,7 +143,7 @@
                                 about as popular as drinking and driving accidents” (Boyles). Speed limits is supposedly
                                 what keeps us safe while out on the road. Many people think that they do not need to
                                 follow the speed limit signs. An opinion would be that speed limits should stay the same
-                                 </p>
+                            </p>
                             <a target="_blank"
                                href="https://www.ipl.org/essay/Essay-On-The-Dangers-Of-Speeding-FC5VG9YVZV"
                                class="btn btn-primary">Learn More</a>
@@ -166,12 +156,13 @@
                              class="p-1 card-img-top img-fluid img-thumbnail" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Overtaking Detection</h5>
-                            <p class="card-text" style="text-align: justify">The seemingly simple manoeuvre of overtaking/ passing other vehicles
+                            <p class="card-text" style="text-align: justify">The seemingly simple manoeuvre of
+                                overtaking/ passing other vehicles
                                 accounts for a high rate of fatalities on South African roads. Passing stationary
                                 vehicles is a rather simple movement and does not present too many problems for most
                                 drivers. Overtaking moving vehicles is a different matter and requires skill, experience
                                 and practice because hazards are moving and the situation is constantly changing.
-                               </p>
+                            </p>
                             <a href="#" class="btn btn-primary">Learn More</a>
                         </div>
                     </div>

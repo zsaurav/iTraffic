@@ -1,4 +1,5 @@
 from flask import Flask, render_template, Response
+from flask_navigation import Navigation
 import cv2
 import time
 import sys
@@ -6,6 +7,13 @@ import numpy as np
 from scipy.spatial import distance as dist
 
 app = Flask(__name__)
+
+nav = Navigation(app)
+nav.Bar('top', [
+    nav.Item('Dashboard', 'index'),
+    nav.Item('Analytics',  'analytics'),
+    nav.Item('Live View',  'live_view'),
+])
 
 
 def build_model(is_cuda):
@@ -197,8 +205,16 @@ def video_feed():
 
 @app.route('/')
 def index():
-    """Video streaming home page."""
     return render_template('map.html')
+
+@app.route('/analytics')
+def analytics():
+    return render_template('analytics.html')
+
+@app.route('/live-view')
+def live_view():
+    """Video streaming home page."""
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
